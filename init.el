@@ -243,9 +243,12 @@ user code here.  The exception is org related code, which should be placed in
 This function is called at the very end of Spacemacs initialization after
 layers configuration. You are free to put any user code."
 
-  ;; Navigating using visual lines
+  ;; Make evil-mode up/down operate in screen lines instead of logical lines
   (define-key evil-normal-state-map (kbd "j") 'evil-next-visual-line)
   (define-key evil-normal-state-map (kbd "k") 'evil-previous-visual-line)
+  ;; Also in visual mode
+  (define-key evil-visual-state-map (kbd "j") 'evil-next-visual-line)
+  (define-key evil-visual-state-map (kbd "k") 'evil-previous-visual-line)
 
   ;; show line number
   (global-linum-mode)
