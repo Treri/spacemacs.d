@@ -35,6 +35,19 @@ values."
      ;; spell-checking
      ;; syntax-checking
      ;; version-control
+     html
+     (javascript :variables
+                 js2-basic-offset 2
+                 js-indent-level 2)
+     lua
+     markdown
+     org
+     php
+     python
+     shell-scripts
+     sql
+     typescript
+     yaml
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
@@ -234,8 +247,10 @@ values."
 It is called immediately after `dotspacemacs/init'.  You are free to put almost any
 user code here.  The exception is org related code, which should be placed in
 `dotspacemacs/user-config'."
+
   (setq tramp-ssh-controlmaster-options
     "-o ControlMaster=auto -o ControlPath='tramp.%%C' -o ControlPersist=no")
+
   )
 
 (defun dotspacemacs/user-config ()
@@ -249,6 +264,9 @@ layers configuration. You are free to put any user code."
   ;; Also in visual mode
   (define-key evil-visual-state-map (kbd "j") 'evil-next-visual-line)
   (define-key evil-visual-state-map (kbd "k") 'evil-previous-visual-line)
+
+  ;; always enable indent-guide
+  (spacemacs/toggle-indent-guide-globally-on)
 
   ;; show line number
   (global-linum-mode)
