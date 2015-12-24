@@ -35,6 +35,16 @@ values."
      ;; spell-checking
      ;; syntax-checking
      ;; version-control
+
+     auto-completion
+     better-defaults
+     (chinese :variables
+              chinese-default-input-method 'wubi
+              chinese-enable-fcitx t)
+
+     git
+     version-control
+
      html
      (javascript :variables
                  js2-basic-offset 2
@@ -44,6 +54,9 @@ values."
      org
      php
      python
+     (shell :variables
+            shell-default-height 30
+            shell-default-position 'bottom)
      shell-scripts
      sql
      typescript
