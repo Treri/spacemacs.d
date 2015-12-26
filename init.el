@@ -54,9 +54,7 @@ values."
      org
      php
      python
-     (shell :variables
-            shell-default-height 30
-            shell-default-position 'bottom)
+     shell
      shell-scripts
      sql
      typescript
@@ -261,6 +259,7 @@ It is called immediately after `dotspacemacs/init'.  You are free to put almost 
 user code here.  The exception is org related code, which should be placed in
 `dotspacemacs/user-config'."
 
+  ;; fix emacs hang because helm
   (setq tramp-ssh-controlmaster-options
     "-o ControlMaster=auto -o ControlPath='tramp.%%C' -o ControlPersist=no")
 
@@ -280,24 +279,6 @@ layers configuration. You are free to put any user code."
 
   ;; always enable indent-guide
   (spacemacs/toggle-indent-guide-globally-on)
-
-  ; ;; show line number
-  ; (global-linum-mode)
-  ; ;; use customized linum-format: add a space before/after the line number
-  ; (unless window-system
-  ;   (add-hook 'linum-before-numbering-hook
-  ;       (lambda ()
-  ;         (setq-local linum-format-fmt
-  ;         (let ((w (length (number-to-string
-  ;               (count-lines (point-min) (point-max))))))
-  ;           (concat "%" (number-to-string w) "d"))))))
-  ; (defun linum-format-func (line)
-  ;   (concat
-  ;     (propertize " " 'face 'linum)
-  ;     (propertize (format linum-format-fmt line) 'face 'linum)
-  ;     (propertize " " 'face 'linum)))
-  ; (unless window-system
-  ;   (setq linum-format 'linum-format-func))
 
   )
 
