@@ -280,6 +280,24 @@ layers configuration. You are free to put any user code."
   ;; always enable indent-guide
   (spacemacs/toggle-indent-guide-globally-on)
 
+  ; ;; show line number
+  ; (global-linum-mode)
+  ;; use customized linum-format: add a space before/after the line number
+  (unless window-system
+    (add-hook 'linum-before-numbering-hook
+        (lambda ()
+          (setq-local linum-format-fmt
+          (let ((w (length (number-to-string
+                (count-lines (point-min) (point-max))))))
+            (concat "%" (number-to-string w) "d"))))))
+  (defun linum-format-func (line)
+    (concat
+      (propertize " " 'face 'linum)
+      (propertize (format linum-format-fmt line) 'face 'linum)
+      (propertize " " 'face 'linum)))
+  (unless window-system
+    (setq linum-format 'linum-format-func))
+
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
