@@ -282,6 +282,12 @@ layers configuration. You are free to put any user code."
   ;; always enable indent-guide
   (spacemacs/toggle-indent-guide-globally-on)
 
+  ;; set tab width to 2 in all mode
+  (add-hook 'prog-mode-hook
+    (lambda ()
+      (setq-default tab-width 2
+                    c-basic-offset 2)))
+
   ; ;; show line number
   ; (global-linum-mode)
   ;; use customized linum-format: add a space before/after the line number
