@@ -286,7 +286,9 @@ layers configuration. You are free to put any user code."
   (add-hook 'prog-mode-hook
     (lambda ()
       (setq-default tab-width 2
-                    c-basic-offset 2)))
+                    c-basic-offset 2)
+      (setq tab-width 2
+            c-basic-offset 2)))
 
   ; ;; show line number
   ; (global-linum-mode)
