@@ -280,7 +280,8 @@ layers configuration. You are free to put any user code."
   (define-key evil-visual-state-map (kbd "k") 'evil-previous-visual-line)
 
   ;; always enable indent-guide
-  (spacemacs/toggle-indent-guide-globally-on)
+  ;; because auto format, so disable this
+  ;; (spacemacs/toggle-indent-guide-globally-on)
 
   ;; set tab width to 2 in all mode
   (add-hook 'prog-mode-hook
