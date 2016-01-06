@@ -289,6 +289,7 @@ layers configuration. You are free to put any user code."
   ;; set tab width to 2 in all mode
   (add-hook 'prog-mode-hook
     (lambda ()
+      (spacemacs/toggle-hungry-delete-on)
       (setq-default tab-width 2
                     c-basic-offset 2)
       (setq tab-width 2
@@ -296,7 +297,8 @@ layers configuration. You are free to put any user code."
 
   ; ;; show line number
   ; (global-linum-mode)
-  ;; use customized linum-format: add a space before/after the line number
+  ;; add a space before/after the line number
+  ;; and make number width more flexible to suit with the max lines
   (unless window-system
     (add-hook 'linum-before-numbering-hook
         (lambda ()
