@@ -304,7 +304,7 @@ layers configuration. You are free to put any user code."
         (lambda ()
           (setq-local linum-format-fmt
           (let ((w (length (number-to-string
-                (count-lines (point-min) (point-max))))))
+                (line-number-at-pos (point-max))))))
             (concat "%" (number-to-string w) "d"))))))
   (defun linum-format-func (line)
     (concat
