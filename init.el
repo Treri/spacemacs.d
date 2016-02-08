@@ -11,6 +11,9 @@ values."
    ;; `+distribution'. For now available distributions are `spacemacs-base'
    ;; or `spacemacs'. (default 'spacemacs)
    dotspacemacs-distribution 'spacemacs
+   ;; If non-nil layers with lazy install support are lazy installed.
+   ;; (default nil)
+   dotspacemacs-enable-lazy-installation nil
    ;; List of additional paths where to look for configuration layers.
    ;; Paths must have a trailing slash (i.e. `~/.mycontribs/')
    dotspacemacs-configuration-layer-path '()
@@ -111,7 +114,7 @@ values."
    ;; If the value is nil then no banner is displayed. (default 'official)
    dotspacemacs-startup-banner 'official
    ;; List of items to show in the startup buffer. If nil it is disabled.
-   ;; Possible values are: `recents' `bookmarks' `projects'.
+   ;; Possible values are: `recents' `bookmarks' `projects' `agenda' `todos'.
    ;; (default '(recents projects))
    dotspacemacs-startup-lists '(recents projects)
    ;; Number of recent files to show in the startup buffer. Ignored if
@@ -194,7 +197,7 @@ values."
    dotspacemacs-helm-position 'bottom
    ;; If non nil the paste micro-state is enabled. When enabled pressing `p`
    ;; several times cycle between the kill ring content. (default nil)
-   dotspacemacs-enable-paste-micro-state nil
+   dotspacemacs-enable-paste-transient-state nil
    ;; Which-key delay in seconds. The which-key buffer is the popup listing
    ;; the commands bound to the current keystroke sequence. (default 0.4)
    dotspacemacs-which-key-delay 0.4
@@ -225,11 +228,15 @@ values."
    ;; the transparency level of a frame when it's inactive or deselected.
    ;; Transparency can be toggled through `toggle-transparency'. (default 90)
    dotspacemacs-inactive-transparency 90
+   ;; If non nil show the titles of transient states. (default t)
+   dotspacemacs-show-transient-state-title t
+   ;; If non nil show the color guide hint for transient state keys. (default t)
+   dotspacemacs-show-transient-state-color-guide t
    ;; If non nil unicode symbols are displayed in the mode line. (default t)
    dotspacemacs-mode-line-unicode-symbols t
    ;; If non nil smooth scrolling (native-scrolling) is enabled. Smooth
-   ;; scrolling overrides the default behavior of Emacs which recenters the
-   ;; point when it reaches the top or bottom of the screen. (default t)
+   ;; scrolling overrides the default behavior of Emacs which recenters point
+   ;; when it reaches the top or bottom of the screen. (default t)
    dotspacemacs-smooth-scrolling t
    ;; If non nil line numbers are turned on in all `prog-mode' and `text-mode'
    ;; derivatives. If set to `relative', also turns on relative line numbers.
@@ -302,20 +309,20 @@ layers configuration. You are free to put any user code."
   ; (global-linum-mode)
   ;; add a space before/after the line number
   ;; and make number width more flexible to suit with the max lines
-  (unless window-system
-    (add-hook 'linum-before-numbering-hook
-        (lambda ()
-          (setq-local linum-format-fmt
-          (let ((w (length (number-to-string
-                (line-number-at-pos (point-max))))))
-            (concat "%" (number-to-string w) "d"))))))
-  (defun linum-format-func (line)
-    (concat
-      (propertize " " 'face 'linum)
-      (propertize (format linum-format-fmt line) 'face 'linum)
-      (propertize " " 'face 'linum)))
-  (unless window-system
-    (setq linum-format 'linum-format-func))
+  ; (unless window-system
+  ;   (add-hook 'linum-before-numbering-hook
+  ;       (lambda ()
+  ;         (setq-local linum-format-fmt
+  ;         (let ((w (length (number-to-string
+  ;               (line-number-at-pos (point-max))))))
+  ;           (concat "%" (number-to-string w) "d"))))))
+  ; (defun linum-format-func (line)
+  ;   (concat
+  ;     (propertize " " 'face 'linum)
+  ;     (propertize (format linum-format-fmt line) 'face 'linum)
+  ;     (propertize " " 'face 'linum)))
+  ; (unless window-system
+  ;   (setq linum-format 'linum-format-func))
 
   )
 
