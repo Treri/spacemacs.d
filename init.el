@@ -300,6 +300,10 @@ layers configuration. You are free to put any user code."
   ;; because auto format, so disable this
   ;; (spacemacs/toggle-indent-guide-globally-on)
 
+  (setq initial-buffer-choice (
+    lambda ()
+      (get-buffer spacemacs-buffer-name)))
+
   ;; set tab width to 2 in all mode
   (add-hook 'prog-mode-hook
     (lambda ()
@@ -311,6 +315,7 @@ layers configuration. You are free to put any user code."
 
   ; ;; show line number
   ; (global-linum-mode)
+
   ;; add a space before/after the line number
   ;; and make number width more flexible to suit with the max lines
   ; (unless window-system
