@@ -50,15 +50,18 @@ values."
      ;; syntax-checking
      ;; version-control
 
+     ;; +completion
      auto-completion
+
+     ;; +emacs
      better-defaults
+
+     ;; +intl
      (chinese :variables
               chinese-default-input-method 'wubi
               chinese-enable-fcitx t)
 
-     git
-     version-control
-
+     ;; +lang
      html
      (javascript :variables
                  js2-basic-offset 2
@@ -74,8 +77,14 @@ values."
      typescript
      yaml
 
+     ;; +os
      osx
 
+     ;; +source-control
+     git
+     version-control
+
+     ;; local layers
      personal
      )
    ;; List of additional packages that will be installed without being
