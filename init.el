@@ -335,6 +335,9 @@ executes.
 before packages are loaded. If you are unsure, you should try in setting them in
 `dotspacemacs/user-config' first."
 
+  ;; disable waring about environment variables on startup
+  (setq exec-path-from-shell-check-startup-files nil)
+
   ;; fix emacs hang because helm
   (setq tramp-ssh-controlmaster-options
     "-o ControlMaster=auto -o ControlPath='tramp.%%C' -o ControlPersist=no")
